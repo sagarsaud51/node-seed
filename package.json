@@ -1,0 +1,35 @@
+{
+  "name": "node-seed",
+  "version": "1.0.0",
+  "description": "seed project",
+  "main": "index.js",
+  "author": "saud",
+  "license": "MIT",
+  "scripts": {
+    "build": "rimraf ./build && tsc",
+    "start:dev": "nodemon",
+    "start": "npm run build && node build build/index.js",
+    "lint": "eslint . --ext .ts",
+    "lint-and-fix": "eslint . --ext .ts --fix",
+    "pretty": "prettier --config .prettierrc src/**/*.ts --write"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "npm run pretty && npm run lint"
+    }
+  },
+  "devDependencies": {
+    "@typescript-eslint/eslint-plugin": "^4.28.3",
+    "@typescript-eslint/parser": "^4.28.3",
+    "eslint": "^7.30.0",
+    "eslint-plugin-shopify": "^35.1.0",
+    "husky": "^7.0.1",
+    "nodemon": "^2.0.12",
+    "rimraf": "^3.0.2",
+    "ts-node": "^10.1.0",
+    "typescript": "^4.3.5"
+  },
+  "dependencies": {
+    "prettier": "^2.3.2"
+  }
+}
