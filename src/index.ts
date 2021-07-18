@@ -9,6 +9,7 @@ import {CommonRoutesConfig} from './common/common.routes.config';
 import {EchoRoutesConfig} from './echo/echo.routes.config';
 import pino from 'pino';
 import { SERVER_ENV_CONSTANTS } from './boot.tester';
+import { UserRoutes } from './user/user.routes';
 
 
 const app: express.Application = express();
@@ -37,6 +38,7 @@ if (SERVER_ENV_CONSTANTS.SERVER_ENVIRONMENT != 'DEV') {
 app.use(expressWinston.logger(loggerOption));
 
 routes.push(new EchoRoutesConfig(app));
+routes.push(new UserRoutes(app));
 
 app.get('/', (req: express.Request, res: express.Response) => {
     res
